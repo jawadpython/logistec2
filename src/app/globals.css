@@ -1,23 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --muted: #737373;
-  --accent: #f97316;
-  --accent-hover: #ea580c;
-  --border: #262626;
-  --card: #141414;
+  --background: #ffffff;
+  --background-alt: #f8f9fa;
+  --foreground: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #F5A623;
+  --accent-hover: #E09000;
+  --accent-dark: #2d3748;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --card-hover: #f9fafb;
+  --header-bg: #ffffff;
+  --footer-bg: #1a1a1a;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-dark: var(--accent-dark);
   --color-border: var(--border);
   --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
   --font-display: 'Bebas Neue', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
@@ -42,6 +50,6 @@ body {
 }
 
 ::selection {
-  background: rgba(249, 115, 22, 0.3);
-  color: white;
+  background: rgba(245, 166, 35, 0.3);
+  color: #1a1a1a;
 }

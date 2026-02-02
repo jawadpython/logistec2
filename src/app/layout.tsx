@@ -17,15 +17,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Manutech | Intralogistique & Manutention Industrielle',
-    template: '%s | Manutech',
+    default: 'MANUAF | We Lighten Your Load - Intralogistique au Maroc',
+    template: '%s | MANUAF',
   },
   description:
-    'Expert en intralogistique et manutention. Solutions sur-mesure pour vos flux de production. Chariots, convoyeurs, systèmes automatisés.',
-  keywords: ['intralogistique', 'manutention', 'industrie', 'entrepôt', 'flux'],
+    'MANUAF, la référence de l\'intralogistique au Maroc. Location, vente et maintenance de chariots élévateurs, transpalettes, nacelles. Pièces de rechange et reconditionnement.',
+  keywords: ['intralogistique', 'manutention', 'chariot élévateur', 'location', 'Maroc', 'Casablanca', 'transpalette', 'nacelle', 'pièces de rechange'],
   openGraph: {
     type: 'website',
-    locale: 'fr_FR',
+    locale: 'fr_MA',
   },
 }
 

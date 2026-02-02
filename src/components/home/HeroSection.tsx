@@ -1,58 +1,48 @@
 import { Button } from '@/components/ui/Button'
 import Image from 'next/image'
 
-const heroImage =
-  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80'
+const heroSlides = [
+  {
+    title: 'Solutions intralogistiques globales',
+    subtitle: 'Comment pouvons-nous rendre votre entrepôt encore plus efficace, durable et économique ?',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80',
+  },
+]
 
 export function HeroSection() {
+  const slide = heroSlides[0]
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
+    <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center pt-[72px] md:pt-[96px]">
+      {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={heroImage}
-          alt="Entrepôt industriel moderne"
+          src={slide.image}
+          alt="Entrepôt logistique"
           fill
           className="object-cover"
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50" />
       </div>
+      
+      {/* Orange accent bar at bottom */}
+      <div className="absolute left-0 bottom-0 w-full h-2 bg-[var(--accent)] z-10" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <p className="text-[var(--accent)] font-semibold tracking-widest uppercase text-sm mb-6">
-          Intralogistique & Manutention
-        </p>
-        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white tracking-wide leading-none mb-8">
-          Maîtrisez vos flux
-        </h1>
-        <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-12 leading-relaxed">
-          Solutions industrielles sur-mesure. Performance, fiabilité, accompagnement.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="max-w-3xl py-16 md:py-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            {slide.title}
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+            {slide.subtitle}
+          </p>
           <Button href="/produits" size="lg">
-            Nos solutions
-          </Button>
-          <Button href="/contact" variant="outline" size="lg">
-            Nous contacter
+            En savoir plus
           </Button>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-60">
-        <svg
-          className="w-6 h-6 text-white/50"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
       </div>
     </section>
   )

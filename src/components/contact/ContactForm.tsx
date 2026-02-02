@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/Button'
 
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>(
@@ -40,12 +39,12 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-white/70 mb-2"
+            className="block text-xs text-[#999999] uppercase tracking-wider mb-2"
           >
             Nom *
           </label>
@@ -54,14 +53,14 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="w-full bg-[#141414] border border-white/10 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--accent)] transition-colors"
+            className="w-full bg-[#f5f5f5] border-0 px-4 py-3 text-[#333333] text-sm placeholder-[#999999] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all"
             placeholder="Votre nom"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-white/70 mb-2"
+            className="block text-xs text-[#999999] uppercase tracking-wider mb-2"
           >
             Email *
           </label>
@@ -70,17 +69,17 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full bg-[#141414] border border-white/10 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--accent)] transition-colors"
-            placeholder="votre@email.fr"
+            className="w-full bg-[#f5f5f5] border-0 px-4 py-3 text-[#333333] text-sm placeholder-[#999999] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all"
+            placeholder="votre@email.com"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label
             htmlFor="company"
-            className="block text-sm font-medium text-white/70 mb-2"
+            className="block text-xs text-[#999999] uppercase tracking-wider mb-2"
           >
             Société
           </label>
@@ -88,14 +87,14 @@ export function ContactForm() {
             id="company"
             name="company"
             type="text"
-            className="w-full bg-[#141414] border border-white/10 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--accent)] transition-colors"
+            className="w-full bg-[#f5f5f5] border-0 px-4 py-3 text-[#333333] text-sm placeholder-[#999999] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all"
             placeholder="Votre entreprise"
           />
         </div>
         <div>
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-white/70 mb-2"
+            className="block text-xs text-[#999999] uppercase tracking-wider mb-2"
           >
             Téléphone
           </label>
@@ -103,8 +102,8 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
-            className="w-full bg-[#141414] border border-white/10 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--accent)] transition-colors"
-            placeholder="01 23 45 67 89"
+            className="w-full bg-[#f5f5f5] border-0 px-4 py-3 text-[#333333] text-sm placeholder-[#999999] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all"
+            placeholder="+212 6XX XXX XXX"
           />
         </div>
       </div>
@@ -112,7 +111,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-white/70 mb-2"
+          className="block text-xs text-[#999999] uppercase tracking-wider mb-2"
         >
           Message *
         </label>
@@ -121,29 +120,29 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full bg-[#141414] border border-white/10 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
+          className="w-full bg-[#f5f5f5] border-0 px-4 py-3 text-[#333333] text-sm placeholder-[#999999] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all resize-none"
           placeholder="Décrivez votre projet ou votre besoin..."
         />
       </div>
 
       {status === 'success' && (
-        <p className="text-green-400 text-sm">
+        <p className="text-green-600 text-sm">
           Message envoyé. Nous vous recontacterons sous 48h.
         </p>
       )}
       {status === 'error' && (
-        <p className="text-red-400 text-sm">
+        <p className="text-red-600 text-sm">
           Erreur d&apos;envoi. Réessayez ou contactez-nous par téléphone.
         </p>
       )}
 
-      <Button
+      <button
         type="submit"
         disabled={status === 'loading'}
-        className="disabled:opacity-50"
+        className="px-8 py-3 bg-[var(--accent)] text-white font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50"
       >
         {status === 'loading' ? 'Envoi...' : 'Envoyer'}
-      </Button>
+      </button>
     </form>
   )
 }

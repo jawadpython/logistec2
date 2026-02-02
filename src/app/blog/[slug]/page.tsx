@@ -31,12 +31,12 @@ export default async function ArticlePage({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <article>
-      <section className="py-16 md:py-24">
+    <article className="bg-[#f5f5f5] min-h-screen mt-[72px] md:mt-[96px]">
+      <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[#666666] hover:text-[var(--accent)] text-sm mb-6 transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -54,40 +54,45 @@ export default async function ArticlePage({ params }: Props) {
             Retour au blog
           </Link>
 
-          <p className="text-white/40 text-sm mb-4">
-            {formatDate(post.createdAt)}
-          </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-8">
-            {post.title}
-          </h1>
-
-          {post.image && (
-            <div className="relative aspect-[21/9] mb-12 overflow-hidden">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 896px"
-                priority
-              />
-            </div>
-          )}
-
-          <div className="prose prose-invert prose-lg max-w-none">
-            <p className="text-white/80 text-lg leading-relaxed mb-8">
-              {post.excerpt}
-            </p>
-            {post.content ? (
-              <div
-                className="text-white/80 leading-relaxed space-y-4"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-            ) : (
-              <p className="text-white/60 italic">
-                Contenu à venir. Contactez-nous pour plus d&apos;informations.
-              </p>
+          <div className="bg-white">
+            {post.image && (
+              <div className="relative aspect-[21/9] overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  priority
+                />
+              </div>
             )}
+
+            <div className="p-8 md:p-12 border-t-4 border-[var(--accent)]">
+              <p className="text-[#999999] text-sm mb-3">
+                {formatDate(post.createdAt)}
+              </p>
+              <h1 className="text-2xl md:text-3xl font-bold text-[#333333] mb-4">
+                {post.title}
+              </h1>
+              <div className="w-16 h-1 bg-[var(--accent)] mb-8"></div>
+
+              <div className="prose prose-lg max-w-none">
+                <p className="text-[#666666] text-lg leading-relaxed mb-6">
+                  {post.excerpt}
+                </p>
+                {post.content ? (
+                  <div
+                    className="text-[#666666] leading-relaxed space-y-4"
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                  />
+                ) : (
+                  <p className="text-[#999999] italic">
+                    Contenu à venir. Contactez-nous pour plus d&apos;informations.
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -23,16 +23,16 @@ export default async function ProductDetailPage({ params }: Props) {
   if (!product) notFound()
 
   const features = product.features
-    ? String(product.features).split('\n').filter(Boolean)
+    ? String(product.features).split('|').filter(Boolean)
     : []
 
   return (
-    <div>
-      <section className="py-16 md:py-24">
+    <div className="bg-[#f5f5f5] min-h-screen mt-[72px] md:mt-[96px]">
+      <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6">
           <Link
             href="/produits"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[#666666] hover:text-[var(--accent)] text-sm mb-6 transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -50,65 +50,62 @@ export default async function ProductDetailPage({ params }: Props) {
             Retour aux produits
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            <div className="relative aspect-[4/3] lg:aspect-square bg-[#141414] overflow-hidden">
-              <Image
-                src={
-                  product.image ||
-                  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80'
-                }
-                alt={product.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
+          <div className="bg-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Image */}
+              <div className="relative aspect-square bg-[#f8f8f8] p-8">
+                <Image
+                  src={
+                    product.image ||
+                    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80'
+                  }
+                  alt={product.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
 
-            <div>
-              <p className="text-[var(--accent)] font-semibold tracking-widest uppercase text-sm mb-4">
-                {product.category}
-              </p>
-              <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6">
-                {product.name}
-              </h1>
-              <p className="text-white/80 text-lg leading-relaxed mb-8">
-                {product.description}
-              </p>
+              {/* Content */}
+              <div className="p-8 lg:p-12 border-l border-gray-100">
+                <p className="text-[#999999] uppercase tracking-wider text-xs mb-2">
+                  {product.category}
+                </p>
+                <h1 className="text-2xl md:text-3xl font-bold text-[#333333] mb-4">
+                  {product.name}
+                </h1>
+                <div className="w-16 h-1 bg-[var(--accent)] mb-6"></div>
+                <p className="text-[#666666] leading-relaxed mb-6">
+                  {product.description}
+                </p>
 
-              {features.length > 0 && (
-                <ul className="space-y-4 mb-8">
-                  {features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-white/80"
-                    >
-                      <span className="text-[var(--accent)] mt-1">—</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                {features.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="font-bold text-[#333333] mb-4">Caractéristiques</h3>
+                    <ul className="space-y-2">
+                      {features.map((feature, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-[#666666] text-sm"
+                        >
+                          <svg className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[var(--accent)] text-white px-8 py-4 font-semibold hover:bg-[var(--accent-hover)] transition-colors"
-              >
-                Demander un devis
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <Link
+                  href="/contact"
+                  className="inline-block px-8 py-3 bg-[var(--accent)] text-white font-medium hover:bg-[var(--accent-hover)] transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
+                  Demander un devis
+                </Link>
+              </div>
             </div>
           </div>
         </div>

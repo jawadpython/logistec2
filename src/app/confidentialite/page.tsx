@@ -6,27 +6,38 @@ export const metadata: Metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <div className="py-20 md:py-28">
-      <div className="max-w-3xl mx-auto px-6">
-        <h1 className="font-display text-4xl text-white mb-8">
-          Politique de confidentialité
-        </h1>
-        <div className="text-white/80 space-y-6 prose prose-invert max-w-none">
-          <p>
-            Manutech s&apos;engage à protéger les données personnelles des
-            utilisateurs de ce site. Les informations collectées via le formulaire
-            de contact sont utilisées uniquement pour répondre à vos demandes.
-          </p>
-          <p>
-            Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès,
-            de rectification et de suppression de vos données. Contactez-nous
-            pour exercer ces droits.
-          </p>
-          <p>
-            Aucune donnée personnelle n&apos;est cédée à des tiers.
-          </p>
+    <div className="bg-[#f5f5f5] min-h-screen mt-[72px] md:mt-[96px]">
+      <section className="py-12 md:py-16 bg-[#4a4a4a]">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            Politique de confidentialité
+          </h1>
+          <div className="w-16 h-1 bg-[var(--accent)]"></div>
         </div>
-      </div>
+      </section>
+
+      <section className="py-12 md:py-16">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="bg-white p-8 md:p-12 border-t-4 border-[var(--accent)]">
+            <div className="text-[#666666] space-y-6">
+              <p>
+                MANUAF s&apos;engage à protéger les données personnelles des
+                utilisateurs de ce site. Les informations collectées via le formulaire
+                de contact sont utilisées uniquement pour répondre à vos demandes.
+              </p>
+              <p>
+                Conformément à la législation marocaine sur la protection des données personnelles 
+                (Loi 09-08), vous disposez d&apos;un droit d&apos;accès,
+                de rectification et de suppression de vos données. Contactez-nous
+                à Contact@manuaf.com pour exercer ces droits.
+              </p>
+              <p>
+                Aucune donnée personnelle n&apos;est cédée à des tiers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
