@@ -1,7 +1,7 @@
 # Manutech — Site intralogistique premium
 
 Site web haut de gamme pour une entreprise d'intralogistique et de manutention.
-
+x
 ## Technologies
 
 - Next.js 16 (App Router)
